@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+  <head>
+    <title>Test Page</title>
+  </head>
+  <body>
+    <h1>Emmet says...</h1>
+    <div>
+      awright? <br />
+      <strong>{{ newboldmessage }}</strong><br />
+    </div>
+    <div>
+      <a href="/rango/">Home</a><br />
+      <img src="{% static 'images/golf_sale.jpg' %}"
+            alt="Golf Sale" />
+      <br />
+      <img src="{{ MEDIA_URL }}rango_test.jpg" alt="KT6 Cover" />
+    </div>
+  </body>
+</html>
