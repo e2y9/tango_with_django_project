@@ -2,6 +2,8 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
+    views = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
     # if unique, attribute field in db must always be unique
     # in the e.g. it's the field 'name' which must be unique in the db
     # if unique, the name field can also be used as a primary key
