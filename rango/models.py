@@ -6,6 +6,9 @@ class Category(models.Model):
     # in the e.g. it's the field 'name' which must be unique in the db
     # if unique, the name field can also be used as a primary key
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     def __str__(self):
         return self.name
 
