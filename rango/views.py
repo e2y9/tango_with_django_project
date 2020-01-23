@@ -4,9 +4,6 @@ from rango.models import Category
 from rango.models import Page
 
 def index(request):
-    # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage matches to {{ boldmessage }} in the template!
-    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
 
     # Query the database for a list of ALL categories currently stored.
     # Order the categories by the number of likes in descending order.
@@ -22,8 +19,10 @@ def index(request):
     # that we would like them in descending order (if we removed the - then the results
     # would be returned in ascending order).
 
+    # Construct a dictionary to pass to the template engine as its context.
+    # Note the key boldmessage matches to {{ boldmessage }} in the template!
     context_dict = {}
-    context_dict['boldmessage'] = 'Crunchy, creamy, cookie candy, cupcake!'
+    context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
 
     # Return a rendered response to send to the client.
