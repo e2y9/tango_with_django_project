@@ -11,4 +11,6 @@ urlpatterns = [
     path('test_page/', views.test_page, name='test_page'),
     path('about/', views.about, name='about'),
     path('polls/', include('polls.urls')),
+    path('category/<slug:category_name_slug>/',
+        views.show_category, name='show_category'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
