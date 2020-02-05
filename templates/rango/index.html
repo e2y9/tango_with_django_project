@@ -1,25 +1,72 @@
 <!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
 
-<html>
+{% block title_block %}
+Homepage
+{% endblock %}
+
+{% block body_block %}
+<h1>Rango says...</h1>
+<div>
+  hey there partner! <br />
+  <strong>{{ boldmessage }}</strong>
+  <!-- variables whose values are to be placed on the page are
+  referenced within double { brackets -->
+</div>
+
+<div>
+<h2>Most Liked Categories</h2>
+{% if categories %}
+    <ul>
+    {% for category in categories %}
+    <li><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <strong>There are no categories present.</strong>
+{% endif %}
+</div>
+
+<div>
+<h2>Most Viewed Pages</h2>
+    {% if pages %}
+    <ul>
+        {% for page in pages %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <strong>There are no pages present.</strong>
+    {% endif %}
+  </div>
+
+<div>
+  <a href="/rango/about/">About</a><br />
+  <a href="/rango/add_category/">Add a New Category</a><br />
+  <img src="{% static 'images/rango.jpg' %}"
+        alt="Picture of Rango" />
+</div>
+{% endblock %}
+
+<!-- <html>
 
   <head>
-    <title>Rango</title>
+    <title>Rango</title> -->
     <!-- CSS -->
     <!-- <link rel="stylesheet" href="{% static "css/base.css" %}" /> -->
     <!-- JavaScript -->
     <!-- <script src="{% static "js/jquery.js" %}"></script> -->
-  </head>
+  <!-- </head>
 
   <body>
     <h1>Rango says...</h1>
     <div>
       hey there partner! <br />
-      <strong>{{ boldmessage }}</strong>
+      <strong>{{ boldmessage }}</strong> -->
       <!-- variables whose values are to be placed on the page are
       referenced within double { brackets -->
-    </div>
+    <!-- </div>
 
     <div>
     <h2>Most Liked Categories</h2>
@@ -32,9 +79,9 @@
     {% else %}
         <strong>There are no categories present.</strong>
     {% endif %}
-    </div>
+    </div> -->
     <!-- all template commands are enclosed wrapped with {% -->
-
+<!--
     <div>
     <h2>Most Viewed Pages</h2>
         {% if pages %}
@@ -56,4 +103,4 @@
     </div>
   </body>
 
-</html>
+</html> -->
