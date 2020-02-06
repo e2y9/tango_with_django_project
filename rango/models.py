@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
@@ -40,3 +41,12 @@ class Page(models.Model):
     # def a str method which alters what is shown when category is printed
     # instead of <Category: Category object> it will now show <Category: title>
     # equivalent to java's toString method
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    website = models.URLField(blank=True)
+    picture = models.ImageField(upload_to='profile_images', blank=True)
+
+    def __str__(self):
+        return self.user.username
