@@ -125,3 +125,5 @@ USE_TZ = True
 
 # practical location of folder (root/static)
 STATIC_URL = '/static/'
+
+LOGIN_URL = 'rango:login'
